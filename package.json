@@ -1,7 +1,9 @@
 {
   "name": "root-notifications",
   "version": "1.0.0",
-  "description": "",
+  "author":"Linnovate",
+  "description": "notification microservice for the HRM",
+  "repository":"https://github.com/linnovate/root-notifications.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
