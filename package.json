@@ -1,5 +1,5 @@
 {
-  "name": "notifications",
+  "name": "root-notifications",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
