@@ -7,7 +7,8 @@ module.exports = function(config) {
             	require('./hi')[fnc](config.rocketChat, params, callback);
         	}
             catch(e) {
-            	console.log('error from notifications npm: You tried to access a function that does not exist: ' + fnc);	
+            	console.log('error from notifications npm: You tried to access a function that does not exist: ' + fnc);
+                console.log(e);
             }
         }
     }

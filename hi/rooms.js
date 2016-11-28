@@ -2,9 +2,10 @@ var talkToRocketChat = require ('./talkToRocketChat')
 
 exports.createRoom = function(rocketChat, params, callback) {
 	talkToRocketChat.talkToRocketChat(rocketChat, {method: 'POST',
-            cmd: '/api/bulk/createPrivateRoom',
+            cmd: '/api/bulk/createRoom',
             form: {
                 rooms:[{
+                    private: true,
                     name: params.name,
                     members: params.members
                 }]
@@ -16,7 +17,7 @@ exports.createRoom = function(rocketChat, params, callback) {
 
 exports.renameRoom = function(rocketChat, params, callback) {
 	talkToRocketChat.talkToRocketChat(rocketChat, {method: 'PUT',
-            cmd: '/api/bulk/updatePrivateRoom',
+            cmd: '/api/bulk/updateRoom',
             form: {
                 rooms:[{
                     name: params.name,

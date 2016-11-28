@@ -1,5 +1,5 @@
 
-request = require('request');
+var request = require('request');
 
 exports.talkToRocketChat = function(rocketChat, options, callback) {
 	console.log('================================================talkToRocketChat======================================')
@@ -23,7 +23,7 @@ exports.talkToRocketChat = function(rocketChat, options, callback) {
         console.log('====================================error============================================')
         console.log(error)
         console.log('====================================body============================================')
-        console.log(body)
+        console.log(body);
         if (!error && response.body.length && response.statusCode < 300) {
             var res = JSON.parse(body);
             return callback(null, res['ids'] ? {id: res['ids'][0]['rid']} : res, response.statusCode);
