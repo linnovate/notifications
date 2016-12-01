@@ -5,9 +5,9 @@ exports.createRoom = function(rocketChat, params, callback) {
             cmd: '/api/bulk/createRoom',
             form: {
                 rooms:[{
-                    private: true,
                     name: params.name,
-                    members: params.members
+                    members: params.members,
+                    private: true
                 }]
             }
         }, function(error, result) {
@@ -21,7 +21,8 @@ exports.renameRoom = function(rocketChat, params, callback) {
             form: {
                 rooms:[{
                     name: params.name,
-                    id: params.roomId
+                    id: params.roomId,
+                    private: true
                 }],
                 message: params.message
             }
