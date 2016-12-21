@@ -2,14 +2,13 @@ var talkToRocketChat = require ('./talkToRocketChat')
 
 exports.createMessage = function(rocketChat, params, callback) {
 
-	talkToRocketChat.talkToRocketChat(rocketChat, {
-		method: 'POST',
+    talkToRocketChat.talkToRocketChat(rocketChat, {
+        method: 'POST',
             form: {
-                msg: params.message,
-                owner: params.owner,
-                room: params.roomId
+                text: params.message,
+                roomId: params.roomId
             },
-            cmd: '/api/rooms/' + params.roomId + '/send'
+            cmd: '/api/v1/chat.postMessage'
         }, function(error, result) {
             callback(error, result)
         });

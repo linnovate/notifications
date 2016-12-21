@@ -1,32 +1,27 @@
-var talkToRocketChat = require ('./talkToRocketChat')
+var talkToRocketChat = require('./talkToRocketChat')
 
 exports.createRoom = function(rocketChat, params, callback) {
-	talkToRocketChat.talkToRocketChat(rocketChat, {method: 'POST',
-            cmd: '/api/bulk/createRoom',
-            form: {
-                rooms:[{
-                    name: params.name,
-                    members: params.members,
-                    private: true
-                }]
-            }
-        }, function(error, result) {
-            callback(error, result)
-        });
+    talkToRocketChat.talkToRocketChat(rocketChat, {
+        method: 'POST',
+        cmd: '/api/v1/groups.create',
+        form: {
+            name: params.name,
+            members: params.members
+        }
+    }, function(error, result, statusCode) {
+        callback(error, result)
+    });
 }
 
 exports.renameRoom = function(rocketChat, params, callback) {
-	talkToRocketChat.talkToRocketChat(rocketChat, {method: 'PUT',
-            cmd: '/api/bulk/updateRoom',
-            form: {
-                rooms:[{
-                    name: params.name,
-                    id: params.roomId,
-                    private: true
-                }],
-                message: params.message
-            }
-        }, function(error, result) {
-            callback(error, result)
-        });
+    talkToRocketChat.talkToRocketChat(rocketChat, {
+        method: 'POST',
+        cmd: '/api/v1/groups.rename',
+        form: {
+            name: params.name,
+            roomId: params.roomId
+        }
+    }, function(error, result) {
+        callback(error, result)
+    });
 }

@@ -1,11 +1,13 @@
-var talkToRocketChat = require ('./talkToRocketChat')
+var talkToRocketChat = require('./talkToRocketChat')
 
 exports.addMember = function(rocketChat, params, callback) {
 	talkToRocketChat.talkToRocketChat(rocketChat, {
-	method: 'POST',
+		method: 'POST',
 		form: {
-			member: params.member		},
-		cmd: '/api/rooms/' + params.roomId + '/addMember'
+			roomId: params.roomId,
+			userId: params.member
+		},
+		cmd: '/api/v1/groups.invite'
 	}, function(error, result) {
 		callback(error, result)
 	});
@@ -13,10 +15,12 @@ exports.addMember = function(rocketChat, params, callback) {
 
 exports.removeMember = function(rocketChat, params, callback) {
 	talkToRocketChat.talkToRocketChat(rocketChat, {
-	method: 'POST',
+		method: 'POST',
 		form: {
-			member: params.member		},
-		cmd: '/api/rooms/' + params.roomId + '/removeMember'
+			roomId: params.roomId,
+			userId: params.member
+		},
+		cmd: '/api/v1/groups.kick'
 	}, function(error, result) {
 		callback(error, result)
 	});
